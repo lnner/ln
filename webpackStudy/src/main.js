@@ -1,23 +1,30 @@
 
 import Vue from 'vue';
-import css from './statics/css/site.css';
 
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 import elementUI from 'element-ui';
-import 'element-ui/lib/theme-default/index.css';
+import './statics/theme_rms/index.css';
+import './statics/css/globalSite.css'
 Vue.use(elementUI);
+
+import axios from 'axios';
 
 // 2.0 导入app.vue组件对象
 import App from './App.vue';   //当前目录下面查找app.vue这个组件
 import layout from './components/admin/layout.vue';
 import shiyan from './shiyan.vue';
 
+axios.defaults.baseURL = 'http://127.0.0.1:8899';
+Vue.prototype.$ajax = axios;
+
 var router=new VueRouter({
     routes:[
         {name:'lay',path:'/',redirect:'/layout'},
-        {name:'layout',path:'/layout',component:layout},
+        {name:'layout',path:'/layout',component:layout,children:[
+            {name:'shiyan',path:'shiyan',component:shiyan}
+        ]},
         // {name:'shiyan',path:'/shiyan',compenont:shiyan},
     ]
 })

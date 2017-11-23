@@ -1,12 +1,13 @@
 <!-- 1.0 组件的模板，需要注意有一个根元素 -->
 <template>
-  <div class="content">
     <el-row>
       <el-col :span='4'>
+      <!--<img src="../../statics/imgs/logo.png" alt="">-->
+      <div class="layout menu">
+      <img src="../../statics/imgs/logo.png" alt="">
         <el-row id="nav">
           <el-col :span="24">
-            <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" background-color="pink"
-              text-color="#000" active-text-color="#0094ff">
+            <el-menu default-active="2" class="el-menu-vertical-demo">
               <el-submenu index="1">
                 <template slot="title">
                   <i class="el-icon-location"></i>
@@ -44,22 +45,25 @@
             </el-menu>
           </el-col>
         </el-row>
+        </div>
       </el-col>
       <el-col :span='20'>
         <el-row>
           <!-- 右顶部 -->
           <el-col :span='24'>
-            <el-col :span='1'></el-col>
-            <el-col :offset='19' :span='4'>
+          <div class="topbg">
+            <el-col :span='1'><i class="el-icon-menu"></i></el-col>
+            <el-col :span='23'>
               欢迎登录！
               <el-dropdown class="right" split-button type="primary" @click="handleClick">
                 更多菜单
                 <el-dropdown-menu slot="dropdown">
-                  <el-dropdown-item>aaaaa</el-dropdown-item>
-                  <el-dropdown-item>bbbbb</el-dropdown-item>
+                  <el-dropdown-item>修改密码</el-dropdown-item>
+                  <el-dropdown-item>注销</el-dropdown-item>
                 </el-dropdown-menu>
               </el-dropdown>
             </el-col>
+            </div>
           </el-col>
         </el-row>
         <el-row>
@@ -69,7 +73,6 @@
         </el-row>
       </el-col>
     </el-row>
-  </div>
 </template>
 
 <!-- 2.0 定义组件中的相关对象(data,methods) -->
@@ -91,10 +94,6 @@
 
 <!-- 3.0  -->
 <style>
-  #nav {
-    background: pink;
-  }
-
   .el-dropdown {
     vertical-align: top;
   }
