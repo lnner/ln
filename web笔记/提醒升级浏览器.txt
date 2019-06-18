@@ -1,0 +1,26 @@
+<!--[if lt IE 8]>
+<script type="text/javascript">
+(function(){
+    var ua = navigator.userAgent;
+    var version;
+    var html = '<div class="area clear">' +
+        '<div class="ie-low">' +
+        '<p>您的浏览器版本过低<br>为了更好的体验，请升级你的浏览器。</p>' +
+        '<h5><a href="https://ie.sogou.com" target="_blank" class="upgrade-btn">马上升级</a></h5>' +
+        '</div></div>';
+    if (/MSIE ([^;]+)/.test(ua)) {
+        version = parseInt(RegExp["$1"]);
+        if (version<8) {
+            document.body.innerHTML=html;
+            var reg = new RegExp("(^| )SUV=([^;]*)(;|$)");
+            var suvs = unescape(document.cookie.match(reg)[2]); 
+            var spv_server_src = "http://pv.sohu.com/action.gif?actionId=10078&SUV="+suvs;
+            var scripts = document.createElement('script');
+            scripts.src = spv_server_src;
+            document.body.appendChild(scripts);   
+            Raven.captureException(new Error('ie'+version));   
+        }
+    }
+})()
+</script>
+<![endif]-->

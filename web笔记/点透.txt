@@ -1,0 +1,29 @@
+1 2015年底 手机浏览器 谷歌 safari 浏览器  包含了标准的理想视口的代码  200ms 的延迟给禁止 
+    2 在其他的一些浏览器,还没有做处理  还是存在 200ms 延迟  
+    3 为了延迟 点透 我需要在火狐上去演示 
+    4 点透
+      d2（上） 绑定 tap点击事件 
+          隐藏自身 
+      d1（下） 绑定了click点击事件 
+          打印出  xxx 
+      原因:
+      点击d2的时候 马上触发了tap点击事件 -  隐藏自己了 
+          200ms  click点击事件产生 
+      
+      解决点透:
+      1 全部使用click点击事件(忍受点击延迟)
+      2 全部使用tap点击事件  (如果说 被遮罩的元素（垫在底下的元素） 是 a标签的话 失败了)
+      3  fastclick.js 
+        在代码里面 综合 处理了 mousedown mouse up click 等事件 解决了 click点击事件在移动点上的点击延迟 
+        代码 直接使用click点击事件就可以  不用tap了! 而且pc和移动端都能触发点击事件
+		具体使用方法：
+		<script src="./fastclick.js"></script>
+  <!-- 该插件要在body上面引入，然后在body里面或下面初始化 -->
+	  <script>
+	  // 初始化
+    if ('addEventListener' in document) {
+      document.addEventListener('DOMContentLoaded', function () {
+        FastClick.attach(document.body);
+      }, false);
+    }
+	  </script>

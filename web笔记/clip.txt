@@ -1,0 +1,2 @@
+不裁剪时的图片原始尺寸（xxx为宽，yyy为高）
+clip:rect(0 xxx yyy 0)

@@ -1,0 +1,10 @@
+使用以下方式都能创建 BFC
+
+float 的值不是 none。
+position 的值不是 static 或者 relative。
+display 的值是 inline-block、table-cell、flex、table-caption 或者inline-flex
+overflow 的值不是 visible
+
+作用：
+BFC 可以防止 margin 折叠
+BFC 可以阻止元素被浮动元素覆盖

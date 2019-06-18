@@ -1,0 +1,23 @@
+1、defer 和 async 在网络读取（脚本下载）这块儿是一样的，都是异步的（相较于 HTML 解析）
+2、两者的差别：在于脚本下载完之后何时执行，显然 defer 是最接近我们对于应用脚本加载和执行的要求的。defer是立即下载但延迟执行，加载后续文档元素的过程将和脚本的加载并行进行（异步），但是脚本的执行要在所有元素解析完成之后，DOMContentLoaded 事件触发之前完成。async是立即下载并立刻执行，加载和渲染后续文档元素的过程将和js脚本的加载与执行并行进行（异步）。
+3、关于defer，我们还要记住的是它是按照加载顺序执行脚本的,等到文档就绪且此前具有defer属性的脚本都结束运行之后再运行它。
+4、标记为async的脚本并不保证按照指定它们的先后顺序执行。对它来说脚本的加载和执行是紧挨着的，所以不管你声明的顺序如何，只要它加载完了就会立刻执行。
+5、async对于应用脚本的用处不大，因为它完全不考虑依赖（哪怕是最低级的顺序执行），不过它对于那些可以不依赖任何脚本或不被任何脚本依赖的脚本来说却是非常合适的。
+
+
+注意：defer属性在浏览器之间表现并不一致。为了避免跨浏览器的差异，可以使用“lazyloading”的方法，即直到用到该脚本时才加载。
+function lazyload() {
+var elem = document.createElement("script");
+elem.type = "text/javascript";
+elem.async = true;
+elem.src = "script.js";
+document.body.appendChild(elem);
+}
+
+if (window.addEventListener) {
+window.addEventListener("load", lazyload, false);
+} else if (window.attachEvent) {
+window.attachEvent("onload", lazyload);
+} else {
+window.onload = lazyload;
+}

@@ -1,0 +1,5 @@
+﻿ie,other
+   text-align: justify;		//other就这个,仅除了最后一行的对齐，只有一行按最后一行算
+// text-align-last: justify;    //需要最后一行也两端对齐时使用
+   text-justify: distribute-all-lines;//或者inter-ideograph;或者distribute;ie使用
+   display:block;//display:inline-block;不行

@@ -1,0 +1,83 @@
+canvas 存在兼容性 ie8 以及 以下 不兼容 
+    作用:
+    1 画画 
+    2 游戏 
+    3 动画 
+    4 广告 
+    5 3d仿真  
+    6 数据图图表 
+/*注意:canvas 默认大小是  300*150 ,
+    给canvas设置宽度和高度的时候 不要在css中设置会放大!拉伸,要在标签中设置属性width和height  */
+
+var can = document.querySelector("canvas");
+var gct = can.getContext("2d");
+
+gct.moveTo(x,y)//定起点
+gct.lineTo(x,y)//定下一个点
+gct.closePath()//连回到起点，又或者再加上gct.lineTo（起点的坐标x,y位置）
+gct.lineCap="";//butt，为默认线条样子形状的样式，可以设置为round，square
+gct.lineJoin='';//miter（直角）,为默认连线交点的样式，还有round（圆角），bevel（平切）
+
+gct.strokeStyle='';//连线的颜色
+gct.stroke();//连线,要设置样式请在调用该方法之前设置
+
+gct.beginPath();//重新开启一个路径
+
+gct.fillStyle='';//填充颜色
+gct.fillRect()//4个参数
+gct.fill();//填充（黑色），会对所有的封闭的多边形进行填充，但顺时针和逆时针的连线会影响到是否填充（要设置颜色时请在调用该方法之前设置）
+
+gct.arc()//一般5个参数，arc(圆心的x,圆心的y,半径,开始的弧度,结束的弧度,(控制方向))
+/*角度（不用加deg）转弧度的函数：
+function degToArc(num) {
+    return Math.PI / 180 * num;
+  }
+*/
+
+gct.setLineDash([ , ])//2个参数，参数1 设置虚线长度，即虚线的中的实线 ;参数2 设置虚线的空隙大小，即虚线中的实线与实线间的大小
+gct.lineDashOffset=x;//设置虚线偏移量  正左 负右 （并不是改变虚线的位置）
+
+gct.clearRect()//4个参数，方块式清除
+
+can.width=can.width 或 can.height=can.height//作用为重置，与gct.clearRect()有些不同
+var img=new Image()
+img.src=''
+img.onload=function(){}
+
+gct.drawImage(img,)//有3个或9个参数（构建新的base64）--该img参数为new Image（），且img.src已加载好，为保险drawImage放入img.onload里再执行
+
+gct.drawImage(video,)//var video=document.querySelector('video');
+
+var src=can.toDataURL('',);
+//toDataURL 是 canvas 画布元素的方法，返回指定图片格式的 data URI编码，也就是 base64 编码串。
+//toDataURL 方法最多接受两个参数--type和quality，并且这两个参数都是可选的：
+//type 图片格式。支持 3 种格式，分别是 image/jpeg image/png image/webp，默认是 image/png。其中 image/webp 只有 chrome 才支持。
+//quality 图片质量。0 到 1 之间的数字，并且只在格式为 image/jpeg 或 image/webp 时才有效，如果参数值格式不合法，将会被忽略并使用默认值。
+另外，如果对应的 canvas 画布宽度或高度为 0，将会得到字符串 data:,，若图片格式不是 image/png，却得到一个以 data:image/png 开头的值，则说明不支持此图片格式
+
+var g=gct.createLinearGradient()//4个参数
+g.addColorStop(/*位置，颜色*/)//2个参数，位置范围只有[0,1]/*0~1*/,颜色要加引号，只要位置和颜色不重复可以显示多个颜色渐变
+/*gct.fillStyle=g;
+gct.fillRect();
+要加上这两个才显示出来渐变*/
+
+<input type="color">//颜色盘
+
+gct.translate()//改变坐标原点位置，值可以叠加,css会覆盖
+gct.rotate(/*弧度*/)//改变坐标系初始角度，值可以叠加，例如在定时器里,但css会覆盖
+
+gct.save()//保存坐标系和刷子的属性（当前瞬时的状态）
+gct.restore()//还原刷子上一次保存的属性
+
+//阴影的数值无单位
+gct.shadowBlur=x;//模糊值
+gct.shadowColor='m';
+gct.shadowOffsetX=x;
+gct.shadowOffsetY=y;
+
+gct.lineWidth=x;
+
+gct.font=' ';//2个参数，设置文本样式，参数1 字的大小要加单位；参数2 字体样式，例如宋体，黑体
+gct.fillText('',x,y);//3个参数，围绕文字的单描边，参数1 要输出的文字 ；参数2,3 文字的位置
+gct.strokeText('',x,y)//3个参数，同上，围绕文字的双描边（上下描边）
+

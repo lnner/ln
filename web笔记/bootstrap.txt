@@ -1,0 +1,2 @@
+表单验证：bootstrapValidator.min.js/bootstrapValidator.min.css
+分页：bootstrap-paginator.min.js

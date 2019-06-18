@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        //for 循环的执行顺序
+    //    for(var i = 1; i<=9;i++)
+    //      {
+    //           for(var j = 1;j<=9;j++){
+    //                 if(j>i)
+    //                 {
+    //                     break;
+    //                 }
+    //                 if(j==3)
+    //                 {
+    //                     document.write('&nbsp');
+    //                 }
+    //                 document.write(j+'*'+i+'='+(i*j)+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+    //           }
+    //             document.write('<br>');
+    //      }
+            
+         var flag = false;
+         
+        // while(flag){
+        //      var hansome = prompt('你觉得最帅的男人是谁？');
+        //      if(hansome == "NeeKin"){
+        //          alert('瞎说大实话');
+        //          flag = false;
+        //      }
+        //         else{
+        //             alert('能有点眼光?再给你次机会');
+        //         }
+             
+        //  } 
+            
+         do{
+            var hansome = prompt('你觉得最帅的男人是谁？');
+             if(hansome == "NeeKin"){
+                 alert('瞎说大实话');
+                 flag = false;
+             }
+            else{
+                    alert('能有点眼光?再给你次机会');
+                    flag=true;
+                } 
+         }while(flag)
+    </script>
+</head>
+<body>
+    <!-- 1 1 1
+    1 2 2  2 2 4 
+    1 3 3  2 3 6  3 3 9
+    1 4 4  2 4 8  3 4 12  4 4 16 -->
+    
+</body>
+</html>

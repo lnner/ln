@@ -1,0 +1,103 @@
+
+行内样式  
+<body><p style="color:fff;"></p></body>
+
+内嵌式    
+<head><title></title><style type="text/css"> p{color=#fff;} </style></head>
+
+外链式    
+<head><title></title><link href="demo.css" type="text/css" rel="stylesheet"></head>
+
+导入式    
+<head><title></title><style>@imoort{url{demo.css}}</style></head>
+
+行内样式优先于内嵌式，内嵌式优先于外链式，外链式是使用的最多的。
+使用外部样式的时候，引入页面有顺序：一般都是先引入初始化的样式，如果有第三的样式，先引入第三方的样式，最后在引入自己当前页面需要的样式文件
+
+b,i,u,s
+strong,em,ins del
+解决：虽然看起来作用相同，但上面的没有--语义,只为形象，下面的可以定义
+
+html概念：一种以标签为语法，能实现页面跳转的和浏览器沟通的语言。
+
+块级元素：
+
+1、块级元素的内容是默认显示在块的左上角。
+
+2、块元素，单独占满一行。（文档流）
+
+行内元素：
+
+1、没有单独占满一行
+
+2、默认情况下，不受到height,width的影响,在浮动或定位后能被影响;还是会受padding，margin影响
+
+类选择器：（.x）
+伪类选择器：（:x）
+伪元素选择器：（::x）
+
+class^=xxx/*类名最前面的-之前*/；class$=xxx/*-之后*/
+
+padding 不会导致盒子大小的情况
+1.不设宽高
+2.继承父盒子宽高
+
+层级权重：
+继承 <通配符选择器 <标签选择器 <类选择器 <id选择器 <行内样式 <！important 
+
+box-shadow:水平（必须），垂直（必须），模糊，阴影大小，阴影颜色，内外阴影
+
+margin作用于块级元素
+text-align作用于行内和行内块级元素
+
+L v hate//记忆法
+a:link（鼠标点击之前）  
+a:visited（鼠标点击之后）  
+a:hover（鼠标移动到链接上之时）  
+a:active（鼠标点击链接之时）
+
+一个name可以同时对应多个控件，比如checkbox和radio
+而id必须是全文档中唯一的
+
+对于select来说，select的下拉菜单是供用户选择的，用户只能选择其中的选项不能自己添加。但是datalist就不同了，datalist不仅可以供用户选择，用户还可以自己输入，而且datalist还可以达到模糊匹配的效果，使用很方便。
+
+相对定位relative/*标准流*/（不脱标）；绝对点位absolute，绝对定位fixed(浮动)/*脱标*/
+只有相对，绝对，固定定位可以使用z-index
+
+vertical-align作用于行内元素
+
+图片下面的空白是vertical-align与line-height共同造成的。
+去除图片底侧空白缝隙：
+一、子级
+1.给img vertical-align:top,middle,bottom/*作用于行内和行内块（行内默认有空）*/
+2.给img 添加 display：block; 转换为块级元素//块级无基线
+3.设置浮动和定位
+
+二、父级
+1.overflow:hidden
+2.font-size:0
+3.line-height:0;
+
+background:left(0) xxxpx/*垂直*/(right xxxpx)
+
+完全相同的属性名会被最后的属性名覆盖，不管属性值是否相同（互补也不行）
+visibility:hidden;/*对象隐藏后，还有占有相应的空间大小*/
+display:none;/*对象隐藏后，对象不占任何空间*/
+
+要是父元素的宽高是百分比（%），子元素宽高也要百分比显示的话记得它是以父元素的百分比为百分比的
+
+transform:translate(x,y,z)
+	  scale(x,y,z)
+	  rotate(x(deg),y(deg),z(deg))
+	  skew(x(deg),y(deg))
+perspective: number|none;//需要放在父元素
+transition//放在当前要变化的元素，要通过一定行为才能触发效果
+border-collapse:collapse;border:none//表格边框的合并
+或者为table 加上 border="0" cellpadding="0" cellspacing="0"
+
+同阶级的父元素，哪个层级高，该子层级永远比其他父元素的子元素的层级高（无论z-index的大小）
+
+nth-child(n)  可以选择到同层级的所有子元素的第n个
+nth-of-type(n)  可以选择到目标元素同类型标签的第n个---*同类型标签，即使样式类名相同但标签不同会按不同的标签进行渲染极----可能发生错误*
+
+使用定位的内陷或外扩时父元素无高度会不利于布局

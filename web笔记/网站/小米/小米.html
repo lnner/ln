@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{
+		padding: 0;
+		margin: 0;
+	}
+		.box{
+			width:1226px;
+			height:460px;
+			margin:0 auto;
+			position:relative;
+			/* border:1px solid blue; */
+		}
+		img{
+			vertical-align:middle;
+		}
+		.b,.c{
+			width:40px;
+			height:70px;
+			line-height:65px;
+			background:#f2f2f2;
+			color:#cbcbcb;
+			top:195px;
+			border-radius:5px;
+			position:absolute;
+			text-align:center;
+			font-size:30px;
+			display:none;
+		}
+		.box:hover .b{
+			display:block;
+			left:0;	
+		}
+		.box:hover .c{
+			display:block;
+			right:0;
+		}
+		.box:hover .b:hover{
+			color:#fff;
+			background:gray;
+		}
+		.box:hover .c:hover{
+			color:#fff;
+			background:gray;
+		}
+		ul{
+			width:200px;
+			height:20px;
+			background:rgba(0, 0, 0, 0.2);
+			position:absolute;
+			bottom:10px;
+			left:50%;
+			margin-left:-108px;
+			/* border:1px solid blue; */
+			border-radius: 10px;
+			padding:5px 8px;
+		}
+		ul li{
+			width:20px;
+			height:20px;
+			border-radius:50%;
+			list-style:none;
+			background:#fff;
+			float:left;
+			margin-right:16px;
+
+		} 
+		ul li:last-child{
+			margin-right:0;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="a"><img src="phone.jpg" alt=""></div>
+		<div class="b">&lt;</div>
+		<div class="c">&gt;</div>
+		<div class="d">
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

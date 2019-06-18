@@ -1,0 +1,38 @@
+$(function(){
+  $('#fullpage').fullpage({
+    verticalCentered:false,
+    navigation:true,
+    loopTop:true,
+    loopBottom:true,
+    // 当前页面加载完之后 触发
+    afterLoad:function(linkName,index){
+        if(index==1){
+          $('.skin').removeClass('skin_move');
+        }
+        if(index==2){
+          $('.s2_img').removeClass('s2_img_move1');
+          $('.s2_img').css('transition','transform 1s');
+        }
+        if(index==3){
+          $(".s3_all").removeClass('s3_begin');
+        }
+    },onLeave:function(index,nextIndex,direction){//一离开就触发
+        if(index==1){
+          $('.circle').addClass('circle_deg');
+          $('.skin').addClass('skin_move');
+        }
+        if(nextIndex==1){
+          $('.circle').removeClass('circle_deg');
+        }
+        if(index==2){
+          $('.s2_img').addClass('s2_img_move2');
+          setTimeout(function(){
+            $('.s2_img').css('transition','none').removeClass('s2_img_move2').addClass('s2_img_move1');
+          },1000);
+        }
+        if(index==3){
+          $('.s3_all').addClass('s3_begin');
+        }
+    }
+  })
+})

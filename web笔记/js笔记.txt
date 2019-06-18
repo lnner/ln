@@ -1,0 +1,220 @@
+document.querySelectorAll()只能获取静态列表，一旦之后通过innerHTML改变dom节点则失效，可以重新获取解决或者可以用document.getElement...代替，可动态获取节点列表
+
+一旦满足if条件之后就不再往else if下执行/*即使else if条件也同时满足；要是if条件包含else if条件可以换成剪切放入if里中执行；要是if只包含一部分else if可以把else if复制同时放入if中*/？？
+
+do while/*至少执行一次*/和while 通常用来做未知次数的循环，for 用来做已知次数的循环，数组适合用来做复杂的条件运算。
+一旦执行到break，直接跳出当前循环。
+continue只结束条件满足循环过程中的某次，然后重新回到开始的条件继续判断条件是否符合。
+
+for循环条件中的i++在不满足条件后本身已自加，所以在for循环之外输出时再含有i的值就会在极限满足条件上加1，而for循环内的语句由于不满足条件所以不会执行里面的语句，i不会再加1。
+
+arr/*自定义的数组名*/=new Array()和arr/*自定义的数组名*/=[],括号里面是数据，每一个逗号代表n+1个数据/*数据为任意，要是是非纯数字要加双引号表示字符串*/，想要选取某个数据，需要在数组名里指定明确的数字（数组对象），即数组名[下标]，数组的下标用方括号括起来，从0开始。
+
+var arr=new Array(999)；如果初始化时，只给一个数据，则该数组定义为有999个数据的数组，而括号里这个数据会默认成为数组长度值，即arr.length=999/*如果括号里连一个数据都没有，也没声明任何一个数组对象对应的值则输出结果为[]*/；而var arr=[999]则默认为数据。
+arr.length为某数组长度即arr里有多少个数据。
+
+伪数组没有数组方法，即pop();push();...
+
+在js中词法作用域规则:
+函数允许访问函数外的数据.
+整个代码结构中只有函数可以限定作用域.
+作用域规则首先使用提升规则分析
+如果当前作用规则中有名字了, 就不考虑外面的名字
+
+块级作用域：
+只作用在大括号里
+{
+   let a=1
+}
+
+预解析过程：
+
+
+1. 会把变量的声明（var xxx）提升到当前作用域/*作用于又分为局部(函数内)和全局（script），变量声明在哪就提升到当前的作用域*/的最前面，只会提升声明，不会提升赋值位置，赋值还是原来的位置。
+
+2. 会把函数的声明（function）提升到当前作用域的最前面，只会提升声明，不会提升调用位置，调用还是原来的位置。
+
+3. 先提升var声明，再提升function
+
+
+函数体只有在调用的时候才会执行，调用需要()进行调用。在函数被调用后，除了形参，函数内的隐式全局变量可在函数外使用。/*要是输出结果在函数内，函数内外变量同名，则函数优先，要是其值在输出结果之后则输出为undefined*/
+
+没有循环的话赋值只能往下进行，不能再往回走
+
+实参，有具体的值。函数执行（调用）时会把实参的值赋予给形参/*要是在函数中，形参被赋值会覆盖实参所赋予的值*/。
+
+简单类型，形参不影响实参；
+复杂类型，形参可能影响实参
+
+没有var声明的变量都是隐性的全局变量
+
+date 的使用 : new Date()//输出：Thu Feb 15 2018 17:49:30 GMT+0800 (中国标准时间)
+
+new Date().getTime();//获取的是格林威治时间，输出是一串数字，单位是秒
+new Date(new Date().getTime())//变回中国标准时间
+new Date().setTime(xxx)-->new Date(		new Date().setTime(xxx)	)-->设置了某个数据
+
+new Date(year,month,date,hour,min,s);//设置
+new Date(2018,06,06)
+new Date("2018-06-06")//有些只支持斜杠'/'
+
+自定义对象：	new Xxx(a,b,c,....);
+		function Xxx(n,m,...){
+			this.n=abc;
+			this.m=zxc;
+			.......}
+
+new 和不new的区别：
+new的this为实例对象，用来创建实例对象的属性与属性值；
+不new的this是window，为window创建属性与属性值，相当于普通函数；
+
+
+for(var key in obj){
+xxx:"m",yyy:"n",......
+}:for in语句用来列举出一个变量的所有成员。如果object是函数，那么将列出函数的所有静态成员；如果object是对象，那就是所有实例成员，key的类型是一个字符串，表示成员的名称。/*key=key,value=obj[key];*/
+
+
+
+
+xxx.indexOf("yyy"，0) 方法可返回某段指定的字符串在总字符串中首次出现的位置,还可以指定哪里开始。
+/*注释：1.indexOf() 方法对大小写敏感！;2.如果要检索的字符串值没有出现，则该方法返回 -1。*/
+
+
+函数的声明function xxx(){}和函数的表达式var xxx=function(){}
+是有区别的---赋值
+
+
+事件源:触发(被)事件的元素
+
+事件类型:事件的触发方式(例如鼠标点击或键盘点击)
+
+事件处理程序:事件触发后要执行的代码(函数形式)
+
+/*当初用什么方式注册事件的，解绑的时候，也使用对应的方式移除*/
+
+在事件处理程序里获取事件源有三种：
+on的方式
+事件源.on + 事件类型 = 事件处理程序
+/*如果同一个事件源，注册同一个类型的事件，重复注册会把前面的覆盖了)*/
+/*事件源.on+事件类型 = null  //事件解绑*/
+1、通过this来获取
+2、event（事件对象）.target
+
+attachEvent的方式（不覆盖）/*ie8以下不支持*/
+事件源.attachEvent("on+事件类型",事件处理程序);
+（事件对应的额函数在事件冒泡阶段执行）/*事件源.detachEvent("on"+事件类型,函数名)*/
+1、不能通过this获取事件源，也就是说this不是事件源
+2、event.srcElement
+
+addEventListener的方式（不覆盖）/*ie6-ie10支持*/
+事件源（元素）.addEventListener("事件类型",事件处理程序/*函数,即function（）{}*/,false);
+/*事件源.removeEventListener(事件类型,函数名);*/
+1、也可以通过this获取
+2、event.target
+（默认false  让事件对应的额函数在事件冒泡阶段执行
+true   让事件对应的函数在事件捕获阶段执行
+）
+事件捕获
+当后代元素触发了某个类型事件，由前代元素（window）一步一步触发同类型事件往后代处传播（直到捕获到目标）
+*从外到里
+
+事件冒泡
+当后代元素触发了某个类型的事件，由后代（目标）一步一步也触发同类型事件往前代元素传播（直到冒泡到最外层即window为止）
+*从里到外
+
+常用的为默认的冒泡流，可以改成捕获流，而所谓的冒泡和捕获不过是因为浏览器傻而导致一个事件的传播的过程中的某个阶段罢了
+
+三个阶段：
+·捕获
+·目标
+·冒泡
+
+事件对象.stopPropagation()---用来阻止事件的传播，支持除ie外
+事件对象.cancelBubble = true;---只支持ie
+
+事件对象.target  ie8不能用
+事件对象.srcElement  ie8所支持的获取事件源的方式
+var target = event.target || event.srcElement;
+
+
+value用来处理表单元素的内容（值），name是提交的键
+
+innerHTML用来创建和处理整个非表单元素的内容（包括文本）/*会覆盖原来的内容，所以创建多个内容时需要拼接字符串*/
+设置：
+*如果是普通的文本，直接把里面原来的内容覆盖
+*如果是标签结构的字符串，会把标签结构解析成html标签，文本还是文本，也会覆盖里面的源内容
+
+innerText和textContent用来处理非表单元素的文本，由于这两者各有各的缺陷所以要用函数兼容处理
+//开始封装兼容处理函数
+    function getInnerText(element){
+        if(element.innerText != undefined){
+            return element.innerText;
+        }else{
+            return element.textContent;
+        }
+    }
+    //封装兼容处理设置内容的函数
+    function setInnerText(element,content){
+        if(element.innerText != undefined){
+            element.innerText = content;
+        }else{
+            element.textContent = content;
+        }
+    }
+
+var xxx=setInterval(function(){
+.......
+clearInterval(xxx);/*用于结束循环*/
+},n)
+/*setInterval() 方法会不停地调用函数，直到 clearInterval() 被调用或窗口被关闭。要是没有xxx声明则一直调用不被停止*/
+
+getComputedStyle是一个可以获取当前元素所有的最终使用的CSS属性值。（这个适用于ie8之前的版本）/*element.currentStyle为兼容ie8*/
+var xxx=window.getComputedStyle(element,null)[];
+
+
+js事件绑定时，函数名加括号和不加括号的区别是：
+
+不加括号目的是引用，通过引用函数体，执行函数体，但不会执行return返回值，且是当事件被触发时才执行的函数，如果没有事件被触发就不会调用；
+加括号代表立即调用，调用执行函数并返回（return）返回值，且不用前面的事件就可以触发；
+
+匿名函数后面加括号会立即执行，（）有指向的作用，例如this
+
+通过addClass添加类，当添加的属性重叠时，会可能发生层级问题
+
+event.target指代的是:触发事件的元素
+event.currentTarget指代的是:事件绑定的元素
+
+<ul><li><a>点击</a></li></ul>
+
+//当点击到ul里的a标签，即它才是触发以下事件的元素
+ul.onclick=function(e){
+  /*这里this为ul*/
+  e.target//为a标签
+  e.currentTarget//为ul标签
+  e.target.parenNode//为点击到的该a的父元素li标签
+  li.onmouseove=function(){
+	/*这里this为li*/
+  }
+}
+this和event.target的区别
+js中事件是会冒泡的，所以this是可以变化的(event.currentTarget)，但event.target不会变化，它永远是直接接受事件的目标DOM元素；事件委托是利用事件的冒泡原理来实现的，何为事件冒泡呢？就是事件从最深的节点开始，然后逐步向上传播事件
+
+
+call()和apply()//都为立即调用函数，针对函数的this指向，参数：call的x,y都要列举出来，apply的x,y为参数数组
+a.call(b,x,y)==a(x,y)//第一个参数bw为this的指向，把a带入参数x，y，把this的指向为b，要是没有b，相当于在当前作用域中的this，要是没有x，y参数则为无参数a函数
+
+bind()//和call一样是一个一个传参数，但不是立即调用
+
+xx.trim() //清空空格
+
+//清除input的file文件
+<input type="file" id="fileupload" name="file" /> 
+var obj = document.getElementById('fileupload') ; 
+obj.select(); 
+document.selection.clear(); 
+//或者obj.outerHTML=obj.outerHTML; 
+
+this和arguments都是js的内置属性，一个指向调用的对象，一个是方法里的参数（伪数组）
+
+findIndex() 方法返回传入一个测试条件（函数）符合条件的数组第一个元素位置。//return boolean判断
+findIndex() 方法为数组中的每个元素都调用一次函数执行：

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/iconfont.css" />
+
+    <style>
+      * {
+        list-style: none;
+        text-decoration: none;
+      }
+      .pr {
+        position: relative;
+      }
+      .pa {
+        position: absolute;
+      }
+      .video_watch {
+        width: 800px;
+        height: 500px;
+        margin: 50px auto;
+        border: 1px solid blue;
+      }
+      .video {
+        width: 80%;
+        height: 90%;
+        left: 0;
+        background: pink;
+      }
+      .video_list {
+        width: 20%;
+        height: 90%;
+        right: 0;
+        text-align: center;
+        /*color:#fff;*/
+        background: grey;
+      }
+      .video_list a {
+        font-size: 18px;
+        color: #fff;
+      }
+      .video_controls {
+        width: 100%;
+        height: 10%;
+        bottom: 0;
+        background: #fff;
+      }
+      .play,
+      .stop {
+        left: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .play {
+        display: none;
+      }
+      .voice {
+        right: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .progress {
+        left: 50%;
+        top: 50%;
+        width: 650px;
+        transform: translate(-50%, -50%);
+      }
+      .volume {
+        right: -18px;
+        top: -77px;
+        transform: rotateZ(-90deg);
+      }
+      .iconfont {
+        font-size: 25px;
+        color: yellow;
+      }
+      .hide {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="input_id" />
+    <div class="video_watch pr">
+      <video src="逗比集结地.mp4" class="video pa" autoplay value="0"></video>
+      <div class="video_list pa">
+        <li><a href="javascript:;" data-src="逗比集结地.mp4">逗比集结地</a></li>
+        <li><a href="javascript:;" data-src="猫和老鼠.mp4">猫和老鼠</a></li>
+        <li><a href="javascript:;" data-src="蜡笔小新.mp4">蜡笔小新</a></li>
+      </div>
+      <div class="video_controls pa">
+        <a href="javascript:;" class="iconfont icon-bofang play pa"></a>
+        <a href="javascript:;" class="iconfont icon-zanting stop pa"></a>
+        <a href="javascript:;" class="iconfont icon-shengyin voice pa"></a>
+        <input type="range" class="progress pa" value="0" />
+        <input
+          type="range"
+          class="volume pa hide"
+          max="1"
+          min="0"
+          value="1"
+          step="0.1"
+        />
+      </div>
+    </div>
+  </body>
+  <script src="jquery.js"></script>
+  <script>
+    $("#input_id").on("input", function(e) {
+      alert("Changed!")
+    }) //这个证明可以用input事件
+    // var video=document.querySelector('.video');
+    $(function() {
+      $(".video").on("canplay", function() {
+        // console.log($(this)[0].duration);
+        $(".progress").max = $(this)[0].duration
+        $(".progress").min = 0
+        $(".progress").step = 1
+        $(".progress").value = 0
+      })
+      $(".video").on("timeupdate", function() {
+        console.log($(".video")[0].currentTime)
+        $(".progress").val($(".video")[0].currentTime)
+      })
+      $(".progress").on("input", function() {
+        $(".video")[0].currentTime = $(this).val()
+      })
+      $(".volume").on("input", function() {
+        video.volume = $(this).val()
+      })
+      $(".voice").click(function() {
+        $(".volume").toggleClass("hide")
+      })
+      $(".stop").click(function() {
+        $(".play").attr({ style: "display:block" })
+        $(".stop").attr({ style: "display:none" })
+        $(".video")[0].pause() //这个改成$('.video')就不行了
+      })
+
+      $(".play").click(function() {
+        $(".play").attr({ style: "display:none" })
+        $(".stop").attr({ style: "display:block" })
+        $(".video")[0].play()
+      })
+      $(".video_list a").each(function(index, element) {
+        $(element).on("click", function() {
+          $(".video")[0].src = this.dataset.src
+        })
+      })
+    })
+  </script>
+</html>

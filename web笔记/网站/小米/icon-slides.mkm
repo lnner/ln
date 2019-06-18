@@ -1,0 +1,8 @@
+<MKM version="2.0" imageFileUrl="file:///D:/%e7%b3%bb%e7%bb%9f%e6%96%87%e4%bb%b6%e5%a4%b9/Desktop/images(1)/icon-slides.png">
+  <Marks>
+    <ColorMark defaultDirection="9" colorSystem="hex" direction="5" color="16711680" targetColor="13355979" offsetX="25" offsetY="10" x="152" y="32"/>
+    <LengthMark direction="3" color="16711680" length="70" x="27" y="0"/>
+    <LengthMark direction="12" color="16711680" length="41" x="0" y="10"/>
+    <ColorMark defaultDirection="9" colorSystem="hex" direction="9" color="16711680" targetColor="0" offsetX="25" offsetY="10" x="73" y="57"/>
+  </Marks>
+</MKM>

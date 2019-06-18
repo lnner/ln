@@ -1,0 +1,329 @@
+@import url('base.css');
+header {
+  width: 100%;
+  height: 40px;
+  position: fixed;
+  background: rgba(201, 21, 35, 0.3);
+}
+.logo {
+  left: 0;
+  top: 0;
+  width: 70px;
+  height: 40px;
+  padding: 5px;
+  background: url('../images/jd-sprites.png') 0 -104px no-repeat;
+  background-size: 200px 200px;
+  background-origin: content-box;
+  background-clip: content-box;
+  box-sizing: border-box;
+}
+.sreach_lian {
+  padding: 5px 50px 5px 70px;
+}
+.sreach_lian .sreach {
+  width: 100%;
+  height: 30px;
+  border-radius: 15px;
+  border: none;
+  outline: none;
+  text-indent: 20px;
+}
+.login {
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  color: #fff;
+}
+.lunbo img {
+  width: 100%;
+  vertical-align: middle;
+}
+.nav {
+  width: 100%;
+}
+.nav > li {
+  float: left;
+  text-align: center;
+  width: 25%;
+  padding: 5px;
+  box-sizing: border-box;
+}
+.nav > li img {
+  width: 50%;
+}
+.nav > li p {
+  font-size: 16px;
+}
+.line {
+  width: 100%;
+  height: 10px;
+  background: #f5f5f5;
+}
+.handle {
+  width: 100%;
+}
+.handle .handle_killtime > li {
+  float: left;
+}
+.handle .handle_killtime > li:nth-child(1) {
+  margin-left: 10px;
+  width: 38px;
+  height: 44px;
+  background: url('../images/jd-sprites.png') -168px -220px no-repeat;
+  transform: translate(0px, -5px) scale(0.6, 0.6);
+}
+.handle .handle_killtime > li:nth-child(2) {
+  color: #c91523;
+  font-size: 15px;
+  margin-left: 5px;
+  line-height: 35px;
+}
+.handle .handle_killtime > li:nth-child(3) {
+  margin-left: 10px;
+}
+.handle .handle_killtime > li:nth-child(3) span {
+  float: left;
+  margin: 6px 2px;
+  width: 12px;
+  height: 23px;
+  background: #3d3d3d;
+  color: #fff;
+  text-align: center;
+  line-height: 23px;
+}
+.handle .handle_killtime > li:nth-child(3) span:nth-child(3n) {
+  color: #3d3d3d;
+  background: #fff;
+  margin:6px 0;
+}
+.handle .handle_killtime > li:nth-child(4) {
+  height: 35px;
+  float: right;
+  line-height: 35px;
+  font-size: 15px;
+}
+.handle_kill .handle_killbuy {
+  width: 33.33%;
+  float: left;
+  text-align: center;
+}
+.handle_kill .handle_killbuy img {
+  width: 100%;
+  display:block;
+}
+.handle_kill .handle_killbuy p {
+  color: #c91523;
+}
+.jd_618_content {
+  width: 100%;
+  vertical-align: middle;
+}
+.jd_618_left {
+  width: 48%;
+  bottom: 5px;
+  left: 5px;
+}
+.jd_618_right {
+  width: 48%;
+  bottom: 5px;
+  right: 5px;
+}
+.jd_618_right img {
+  width: 100%;
+  vertical-align: middle;
+}
+.subnav>li{
+  float: left;
+  width:50%;
+}
+.subnav>li:nth-child(-n+3){
+  width:33.33%;
+}
+.subnav img {
+  display: block;
+  width: 100%;
+}
+.banner{
+  padding:5px;
+}
+.banner>img{
+  width:100%;
+  display:block;
+}
+.superMarket p{
+  color:#c91523;
+  font-size:15px;
+  text-indent:5px;
+}
+.superMarket ul>li{
+  float:left;
+  width:50%
+}
+.superMarket ul>li:nth-child(4){
+  clear:both;
+}
+.superMarket ul>li img{
+  width:100%;
+  display:block;
+}
+.theme>li{
+  width:25%;
+  float:left;
+}
+.theme>li img{
+  width:100%;
+  display:block;
+}
+.theme>li:nth-child(-n+2){
+  width:50%;
+}
+.theme>li:nth-child(5){
+  clear:both;
+}
+.brand p{
+  color:#c91523;
+  font-size:15px;
+  text-indent:5px;
+}
+.brand li{
+  float:left;
+}
+.brand ul>li:first-child{
+  width:40%;
+}
+.brand ul>li:nth-child(2),.brand ul>li:nth-child(3){
+  width:30%;
+}
+.brand ul>li img{
+  width:100%;
+  display:block;
+}
+.like_title{
+  height:30px;
+  width:100%;
+}
+.like_title>a:first-child{
+  float:left;
+  color:#c91523;
+  font-size:15px;
+  font-weight:800;
+}
+
+.like_title>a:nth-child(2){
+  float:right;
+  color:#c91523;
+  font-size:13px;
+}
+.like_title img{
+  float:right;
+  width:18px;
+  height:18px;
+  display:block;
+}
+.like_content{
+  width:100%;
+}
+.like_content>li{
+  float:left;
+  width:50%;
+  padding:10px;
+  box-sizing:border-box;
+}
+.like_content_top{
+  height:30p;
+  width:100%;
+}
+.like_content_top span{
+  color:#c91523;
+  float:left;
+}
+.like_content_top a{
+  color:#ccc;
+  font-size:15px;
+  float:right;
+  border:1px solid #ccc;
+}
+.like_content_img{
+  width:100%;
+}
+.like_content>li>p{
+  font-size:15px;
+      height: 37px;
+      border-bottom:1px solid #ccc;
+    overflow: hidden;
+}
+footer{
+  colot:#3d3d3d;
+  font-size:13px;
+}
+.footer_load{
+  height:30px;
+  width:100%;
+  /*font-size:15px;*/
+  text-align:center;
+  line-height:30px;
+  colot:#3d3d3d;
+  border-top:1px solid #ccc;
+}
+.footer_login{
+  padding:10px;
+  height:20px;
+  box-sizing:border-box;
+}
+.footer_login li{
+  float:left;
+  width:25%;
+  color:#3d3d3d;
+  text-align:center;
+  /*margin:10px;*/
+  line-height: 20px;
+  box-sizing:border-box;
+  border-right:1px solid #3d3d3d;
+}
+.footer_login li:last-child{
+  border:none;
+}
+.footer_version{
+  width:100%;
+  height:60px;
+  padding:8px;
+}
+.footer_version>li{
+  width:33.33%;
+  float:left;
+  padding:5px;
+  text-align:center;
+  box-sizing:border-box;
+}
+.footer_version_app{
+  width:35px;
+  height:35px;
+  margin:0 auto;
+  background: url('../images/jd-sprites.png') -120px -70px no-repeat;
+  background-size:200px 200px;
+}
+.footer_bottom{
+  padding:20px 30px;
+  text-align:center;
+}
+.last{
+  width:100%;
+  position:fixed;
+  bottom:0;
+  background: #fff;
+}
+.last>li{
+  width:20%;
+  float:left;
+}
+.last>li img{
+  width:57px;
+  height:44px;
+}
+.last_fu{
+  width:100%;
+  height:44px;
+}

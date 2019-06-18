@@ -1,0 +1,332 @@
+@import url('base.css');
+header {
+    width: 100%; // background: pink;
+    padding: 5px 50px 5px 70px;
+    height: 40px;
+    position: fixed;
+    z-index: 2;
+    .logo {
+        width: 70px;
+        height: 40px;
+        padding: 10px 5px;
+        left: 0;
+        top: 0;
+        background-color: grey;
+        background: url('../images/jd-sprites.png') 0 -110px no-repeat;
+        background-size: 200px 200px;
+        background-origin: content-box;
+        background-clip: content-box;
+    }
+    .sreach {
+        width: 100%;
+        height: 30px; // height: 40px;
+        border-radius: 20px;
+        border: none;
+        text-indent: 20px;
+    }
+    .login {
+        height: 40px;
+        width: 50px;
+        right: 0;
+        top: 0;
+        text-align: center;
+        line-height: 40px;
+        color: #fff;
+    }
+}
+
+.lunbo {}
+
+.nav {
+    width: 100%;
+    >li {
+        float: left;
+        width: 25%;
+        text-align: center;
+        padding: 5px;
+        img {
+            width: 50%;
+            margin: 0 auto;
+        }
+    }
+}
+
+.line {
+    width: 100%;
+    height: 5px;
+    background: #fafafa;
+}
+
+.handle {
+    .handle_killtime {
+        height: 30px;
+        width: 100%;
+        >li {
+            height: 30px;
+            float: left;
+            &:nth-child(1) {
+                width: 30px;
+                height: 30px;
+                padding: 4px;
+                margin-left: 10px;
+                background: url('../images/jd-sprites.png') -82px -110px no-repeat;
+                background-size: 200px 200px;
+                background-origin: content-box;
+                background-clip: content-box
+            }
+            &:nth-child(2) {
+                font-size: 15px;
+                color: #F15353;
+                line-height: 30px;
+                margin-left: 10px;
+            }
+            &:nth-child(3) {
+                padding: 4px 0;
+                margin-left: 10px;
+                span {
+                    float: left;
+                    margin-right: 3px; // padding:2px 0;
+                    color: #fff;
+                    font-size: 14px;
+                    width: 12px;
+                    background: grey;
+                    line-height: 20px;
+                    text-align: center;
+                }
+                span:nth-child(3n) {
+                    background: #fff;
+                    color: grey;
+                    margin: 0;
+                }
+            }
+            &:last-child {
+                float: right;
+                line-height: 30px;
+            }
+        }
+    }
+    .handle_kill {
+        width: 100%;
+        >li {
+            float: left;
+            width: 33.33%;
+            text-align: center;
+            p {
+                color: #F15353;
+            }
+        }
+    }
+}
+
+.jd_618 {
+    width: 100%;
+    .jd_618_left {
+        left: 5px;
+        bottom: 5px;
+        width: 48%;
+    }
+    .jd_618_right {
+        right: 5px;
+        bottom: 5px;
+        width: 48%;
+    }
+}
+
+.subnav {
+    width: 100%;
+    >li {
+        float: left;
+        width: 50%;
+    }
+    >li:nth-child(-n+3) {
+        width: 33.33%;
+    }
+    >li:nth-child(4) {
+        clear: both;
+    }
+}
+
+.banner {
+    padding: 5px;
+    width: 100%;
+}
+
+.superMarket {
+    p {
+        color: #F15353;
+        font-size: 20px;
+        line-height: 30px;
+        font-weight: 800;
+        text-indent: 5px;
+    }
+    li {
+        float: left;
+        width: 50%;
+    }
+}
+
+.theme {
+    >li {
+        float: left;
+        width: 25%;
+    }
+    >li:nth-child(-n+2) {
+        width: 50%;
+    }
+    >li::nth-child(5) {
+        clear: both;
+    }
+}
+
+.brand {
+    p {
+        color: #F15353;
+        font-size: 20px;
+        line-height: 30px;
+        font-weight: 800;
+        text-indent: 5px;
+    }
+    li {
+        float: left;
+    }
+    li:nth-child(1) {
+        width: 40%;
+    }
+    li:nth-child(2) {
+        width: 30%;
+    }
+    li:nth-child(3) {
+        width: 30%;
+    }
+}
+
+.like {
+    .like_title {
+        height: 30px;
+        width: 100%;
+        // display:flex;
+        // align-items:center;
+        // justify-content:center;
+        a:nth-child(1) {
+            color: #F15353;
+            font-size: 20px;
+            line-height: 30px;
+            text-indent: 5px;
+            font-weight: 800;
+            float: left;
+        }
+        a:nth-child(2) {
+            color: #F15353;
+            font-size: 15px;
+            line-height: 30px;
+            float: right;
+            margin-right: 5px;
+        }
+        img {
+            width: 18px;
+            height: 18px;
+            float: right; 
+            // vertical-align:middle;
+            margin:6px 0;
+            background: url('../images/icon-login.png') no-repeat;
+            background-size: contain;
+        }
+    }
+    .like_content {
+        >li {
+            width: 50%;
+            padding: 10px 10px 5px 10px;
+            float: left;
+            .like_content_top {
+                height: 20px;
+                span {
+                    float: left;
+                    color: #F15353;
+                    font-size: 15px;
+                }
+                a {
+                    font-size: 15px;
+                    float: right;
+                    border: 1px solid #ccc;
+                }
+            }
+            p {
+                font-size: 15px;
+                color: #000;
+                height: 40px;
+                overflow: hidden;
+                border-bottom: 1px solid #ccc;
+            }
+        }
+    }
+}
+
+footer {
+    .footer_load {
+        font-size: 15px;
+        line-height: 50px;
+        text-align: center;
+        width: 100%;
+        border-top: 1px solid #ccc;
+    }
+    .footer_login {
+        border-top: 1px solid #ccc;
+        padding: 15px 0;
+        width: 100%;
+        height: 50px;
+        li {
+            float: left;
+            height: 100%;
+            line-height: 20px;
+            text-align: center;
+            border-right: 1px solid grey;
+            width: 25%;
+            &:last-child {
+                border: none;
+            }
+        }
+    }
+    .footer_version {
+        width: 100%;
+        padding: 10px;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        li {
+            float: left;
+            width: 33.33%;
+            text-align: center;
+            .footer_version_app {
+                background: url('../images/jd-sprites.png') -120px -70px no-repeat;
+                width: 35px;
+                height: 35px;
+                margin: 0 auto;
+                font-size: 18px;
+                background-size: 200px 200px;
+            }
+        }
+    }
+    .footer_bottom {
+        text-align: center;
+        padding: 20px;
+        p {
+            font-size: 15px;
+        }
+    }
+}
+
+.last {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    li {
+        width: 20%;
+        float: left;
+    }
+}
+
+.last_fu {
+    visibility: hidden;
+    img {
+        width: 20%;
+    }
+}

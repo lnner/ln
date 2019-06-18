@@ -1,7 +1,0 @@
-{
-    "presets":["es2015"],
-    "plugins": [["import",{
-        "libraryName":"iview",
-        "libraryDirectory":"src/components"
-    }]]
-}

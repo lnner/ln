@@ -1,0 +1,24 @@
+js事件绑定有on，addEventListener(removeEventListener),attachEvent(detachEvent)
+e
+e.target(事件源)
+e.target.nodeName(事件源的标签名//大写字母)
+e.currentTarget(目标监听事件，e.target的父元素)js原生
+
+
+jq事件绑定有on()和delegate()
+e.delegateTarget()js原生没有该方法，只用于jq
+
+
+事件委托：
+利用事件的冒泡原理实现，即事件从最深节点开始，逐步向上传播事件,委托最深节点的父级代为执行事件
+
+jq: $(父元素).on（事件,function(e){}）等同 js: 父元素dom.on事件=function(e){}
+this为该父元素
+e.delegateTarget===e.currentTarget
+
+jq: $(父元素).on（事件,子元素，function(e){}）不等同：
+this为子元素
+e.delegateTarget！==e.currentTarget
+e.currentTarget===e.target
+
+jq: $(父元素).delegate（子元素，事件，data(数据可选)，function(e){}）同上

@@ -1,0 +1,43 @@
+
+checked="checked"
+selected="selected"
+button(按钮)bottom(底部)
+<a href="#",target="blank(self/*默认*/)"><a>
+
+<label for="(id)">xxx</label>
+
+<input list="xxx">/*list绑定datalist*//*为自定义和可选*/
+<datalist id="xxx">/*不能是name*/
+	<option value="xxx"></option>
+</datalist>
+
+<select>/*只有可选*/
+	<option>xxx</option>
+</select>
+
+<textarea cols="/*列*/" row="/*排*/" style="resize：none"></textarea>/*文本框*/
+<input type="reset">
+::selection{ }
+<input type="file" multiple>（autofocus）（autocomplete）(required)
+maxlength
+
+<fieldset>/*带有文字说明的框*/
+	<legend>xxx</legend>
+</fieldset>
+
+cellpadding,cellspacing--table属性
+text-decoration:none
+list-style:none
+
+background-position:center
+background-attachment:scroll/*默认*/(fixed)
+visibility:visible/*默认*/(hidden)
+overflow:scroll/auto (hidden)
+vertical-align:middle
+
+outline-style:none
+box-sizing:border-box(content-box/*默认*/)
+transparent--透明色
+
+cursor:pointer--鼠标手
+text-overflow:ellipsis--换行

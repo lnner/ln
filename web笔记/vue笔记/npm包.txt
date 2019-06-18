@@ -1,0 +1,3 @@
+vue-progressbar  --进度条
+vue-lazyload --懒加载
+babel-polyfill  --es6

@@ -1,0 +1,12 @@
+.left span{
+    display: none !important;
+}
+
+.right span{
+    display: none !important;
+}
+
+#carousel-example-generic:hover .left span,
+#carousel-example-generic:hover .right span{
+    display: inline-block !important;
+}

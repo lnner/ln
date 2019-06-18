@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+       .photo img{
+           width: 400px;
+           height: 400px;
+       }
+        .photo .mask{
+            height:400px;
+            width: 400px;
+            background-color: rgba(0,0,0,1);
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class='photo'>
+              <div class="mask" id='mask'></div>  
+            <img src="img/长泽雅美.jpg" alt="" id='lady'>
+    </div>
+        
+        <input type="text" id='starname'>
+        <input type="button"  value="猜一猜" id='guess'>
+    
+    <script src='js/game.js'>
+        
+    </script>
+</body>
+</html>

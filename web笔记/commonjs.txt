@@ -1,0 +1,182 @@
+Node 应用由模块组成，采用 CommonJS 模块规范。
+
+每个文件就是一个模块，有自己的作用域。在一个文件里面定义的变量、函数、类，都是私有的，对其他文件不可见。CommonJS规范规定，每个模块内部，module变量代表当前模块。这个变量是一个对象，它的exports属性（即module.exports）是对外的接口。加载某个模块，其实是加载该模块的module.exports属性。
+
+CommonJS特点：
+所有代码都运行在模块作用域，不会污染全局作用域。
+模块可以多次加载，但是只会在第一次加载时运行一次，然后运行结果就被缓存了，以后再加载，就直接读取缓存结果。要想让模块再次运行，必须清除缓存。
+模块加载的顺序，按照其在代码中出现的顺序。
+
+require方法用于加载模块。
+
+module.exports属性。
+module.exports属性表示当前模块对外输出的接口，其他文件加载该模块，实际上就是读取module.exports变量。
+
+exports变量
+为了方便，Node为每个模块提供一个exports变量，指向module.exports。这等同在每个模块头部，有一行这样的命令----var exports=module.exports;
+
+造成的结果是，在对外输出模块接口时，可以向exports对象添加方法。
+注意，不能直接将exports变量指向一个值，因为这样等于切断了exports与module.exports的联系,exports不再指向module.exports了.
+
+node的module遵循CommonJS规范，requirejs遵循AMD，seajs遵循CMD
+CommonJS:就是用来规范JS的使用的，主要为了JS在后端的表现制定的，不太适合前端。它定了三个模块：模块引用的require，模块定义的exports和模块标识module。
+AMD:是一种异步加载模块的方式，主要为前端JS的表现制定规范。只有一个模块define(id?,dependencies?,factory);
+CMD:玉伯写了seaJS，就是遵从他提出的CMD规范。
+
+Node 应用由模块组成，采用 CommonJS 模块规范。
+
+每个文件就是一个模块，有自己的作用域。在一个文件里面定义的变量、函数、类，都是私有的，对其他文件不可见。
+
+// example.js
+var x = 5;
+var addX = function (value) {
+  return value + x;
+};
+上面代码中，变量x和函数addX，是当前文件example.js私有的，其他文件不可见。
+
+如果想在多个文件分享变量，必须定义为global对象的属性。
+
+global.warning = true;
+上面代码的warning变量，可以被所有文件读取。当然，这样写法是不推荐的。
+
+CommonJS规范规定，每个模块内部，module变量代表当前模块。这个变量是一个对象，它的exports属性（即module.exports）是对外的接口。加载某个模块，其实是加载该模块的module.exports属性。
+
+var x = 5;
+var addX = function (value) {
+  return value + x;
+};
+module.exports.x = x;
+module.exports.addX = addX;
+上面代码通过module.exports输出变量x和函数addX。
+
+require方法用于加载模块。
+
+var example = require('./example.js');
+
+
+CommonJS模块的特点如下
+
+所有代码都运行在模块作用域，不会污染全局作用域。
+模块可以多次加载，但是只会在第一次加载时运行一次，然后运行结果就被缓存了，以后再加载，就直接读取缓存结果。要想让模块再次运行，必须清除缓存。
+模块加载的顺序，按照其在代码中出现的顺序。
+module对象
+Node内部提供一个Module构建函数。所有模块都是Module的实例。
+
+function Module(id, parent) {
+  this.id = id;
+  this.exports = {};
+  this.parent = parent;
+  // ...
+每个模块内部，都有一个module对象，代表当前模块。它有以下属性。
+
+module.id 模块的识别符，通常是带有绝对路径的模块文件名。
+module.filename 模块的文件名，带有绝对路径。
+module.loaded 返回一个布尔值，表示模块是否已经完成加载。
+module.parent 返回一个对象，表示调用该模块的模块。
+module.children 返回一个数组，表示该模块要用到的其他模块。
+module.exports 表示模块对外输出的值。
+下面是一个示例文件，最后一行输出module变量。
+
+// example.js
+var jquery = require('jquery');
+exports.$ = jquery;
+console.log(module);
+执行这个文件，命令行会输出如下信息。
+
+{ id: '.',
+  exports: { '$': [Function] },
+  parent: null,
+  filename: '/path/to/example.js',
+  loaded: false,
+  children:
+   [ { id: '/path/to/node_modules/jquery/dist/jquery.js',
+       exports: [Function],
+       parent: [Circular],
+       filename: '/path/to/node_modules/jquery/dist/jquery.js',
+       loaded: true,
+       children: [],
+       paths: [Object] } ],
+  paths:
+   [ '/home/user/deleted/node_modules',
+     '/home/user/node_modules',
+     '/home/node_modules',
+     '/node_modules' ]
+}
+如果在命令行下调用某个模块，比如node something.js，那么module.parent就是null。如果是在脚本之中调用，比如require('./something.js')，那么module.parent就是调用它的模块。利用这一点，可以判断当前模块是否为入口脚本。
+
+if (!module.parent) {
+    // ran with `node something.js`
+    app.listen(8088, function() {
+        console.log('app listening on port 8088');
+    })
+} else {
+    // used with `require('/.something.js')`
+    module.exports = app;
+}
+module.exports属性
+module.exports属性表示当前模块对外输出的接口，其他文件加载该模块，实际上就是读取module.exports变量。
+
+var EventEmitter = require('events').EventEmitter;
+module.exports = new EventEmitter();
+
+setTimeout(function() {
+  module.exports.emit('ready');
+}, 1000);
+上面模块会在加载后1秒后，发出ready事件。其他文件监听该事件，可以写成下面这样。
+
+var a = require('./a');
+a.on('ready', function() {
+  console.log('module a is ready');
+});
+exports变量
+为了方便，Node为每个模块提供一个exports变量，指向module.exports。这等同在每个模块头部，有一行这样的命令。
+
+var exports = module.exports;
+造成的结果是，在对外输出模块接口时，可以向exports对象添加方法。
+
+exports.area = function (r) {
+  return Math.PI * r * r;
+};
+
+exports.circumference = function (r) {
+  return 2 * Math.PI * r;
+};
+注意，不能直接将exports变量指向一个值，因为这样等于切断了exports与module.exports的联系。
+
+exports = function(x) {console.log(x)};
+上面这样的写法是无效的，因为exports不再指向module.exports了。
+
+下面的写法也是无效的。
+
+exports.hello = function() {
+  return 'hello';
+};
+
+module.exports = 'Hello world';
+上面代码中，hello函数是无法对外输出的，因为module.exports被重新赋值了。
+
+这意味着，如果一个模块的对外接口，就是一个单一的值，不能使用exports输出，只能使用module.exports输出。
+
+module.exports = function (x){ console.log(x);};
+如果模块输出的是一个函数，那就不能定义在exports对象上面，而要定义在module.exports变量上面。
+
+AMD规范与CommonJS规范的兼容性
+CommonJS规范加载模块是同步的，也就是说，只有加载完成，才能执行后面的操作。AMD规范则是非同步加载模块，允许指定回调函数。由于Node.js主要用于服务器编程，模块文件一般都已经存在于本地硬盘，所以加载起来比较快，不用考虑非同步加载的方式，所以CommonJS规范比较适用。但是，如果是浏览器环境，要从服务器端加载模块，这时就必须采用非同步模式，因此浏览器端一般采用AMD规范。
+
+
+Node使用CommonJS模块规范，内置的require命令用于加载模块文件。
+require命令的基本功能是，读入并执行一个JavaScript文件，然后返回该模块的exports对象。如果没有发现指定模块，会报错。
+require命令用于加载文件，后缀名默认为.js，要是js没找到就为json，node继续找。
+根据参数的不同格式，require命令去不同路径寻找模块文件。
+如果参数字符串不以“./“或”/“开头，则表示加载的是一个默认提供的核心模块（位于Node的系统安装目录中），或者一个位于各级node_modules目录的已安装模块（全局安装或局部安装）。
+第一次加载某个模块时，Node会缓存该模块。以后再加载该模块，就直接从缓存取出该模块的module.exports属性。
+
+AMD异步模块，代表：RequireJS，AMD规范使用define方法定义模块
+require.js加载的模块，采用AMD规范。也就是说，模块必须按照AMD的规定来写。
+具体来说，就是模块必须采用特定的define()函数来定义。如果一个模块不依赖其他模块，那么可以直接定义在define()函数之中。Require.js主要提供define和require两个方法来进行模块化编程，前者用来定义模块，后者用来调用模块，这种模块定义的方法不会污染全局环境，能够清晰的显示依赖关系。
+与require.js相同，require方法默认读取js文件，所以可以省略.js后缀名。
+
+CommonJS是服务器端模块的规范，AMD规范更多是浏览器中的模块规范。Node.JS采用了CommonJS规范，RequiresJS、 JQuery等采用了AMD规范;AMD规范定义了一个语法API，即define函数，在require.config()方法里暴露而CommonJS提供了一组API层面的定义;AMD规范是异步加载模块，允许指定回调函数，CommonJS是同步加载模块，只有模块加载完成，才能执行后面操作。
+
+环境变量NODE_PATH
+NODE_PATH是历史遗留下来的一个路径解决方案，通常不应该使用，而应该使用node_modules目录机制。

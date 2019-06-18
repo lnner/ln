@@ -1,0 +1,52 @@
+﻿2018/7/30
+vue-cli自带new webpack.HotModuleReplacementPlugin插件，如果利用webpack-dev-server cli 并且加了--hot 这个选项，就不要在这里加入new webpack.HotModuleReplacementPlugin()这个插件了，否则会报Maximum call stack size exceeded（栈溢出）错误
+
+2018/8/13
+vue里使用v-for且用:data-xx标识时，用jq的$.data()会出问题
+
+2018/8/15
+Vue是对数组、对象的浅拷贝、复制，这一点js也相同
+
+2018/8/16
+$ref----只针对当前组件的节点
+
+2018/8/30
+路由守卫的from遇到刷新from.path就会变为'/',若有二级以上路由，to.name往上冒泡直到最底层子路由
+
+2018/8/31
+watch监听时使用immediate时，是立即执行，但vue实例还未挂载上去，不能获取响应的节点
+
+2018/10/15
+表单的添加和编辑公用一个模板时，若不想储存id在本地上，router的路径的参数不要写死，因为可能添加不需要id之类的参数
+
+2018/11/2
+对于通过变换class实现多个效果的，请不要吝啬的使用DOM节点去操作
+
+2018/11/5
+赋值数据不更新有各种情况，可以根据情况若是在非watch里赋值可以把原属性delete掉，再添加回去，或监听route触发数据变动，若是在watch赋值，由于watch只能监听到一层和二层的数据，可以加上deep深入监听来获取值
+
+2018/11/12
+组件里routerLink 上加事件，若是click则是先执行跳转再触发事件
+
+2018/11/19
+vue2.0 css里图片url需写绝对路径，根据打包都位置在utils里加publicPath--键和路径位置
+vue里不能打包./的路径
+
+2018/12/6
+immediate和deep要区分开来，一个是初始加载，一个是深探索
+
+2018/12/12
+在destory里this.$destory可使下次回到该组件（路由）时重新加载
+
+2019/2/14
+vue 无法对不存在的属性作响应，直接报错不再继续渲染
+
+2019/2/19
+axios--用法相同：get和delete （都需要{params:data}） ，post和put（post若是参数拼接上传（qs.stringify(data）则headers.Content-Type会自动改为application/x-www-form-urlencoded,put不会）
+
+2019/02/26
+请求contentType一般默认为application/x-www-form-urlencoded；application/x-www-form-urlencoded不能传数组或嵌套多层的数据---可改为application/json ，把data数据转为JSON.stringify(data)
+
+get 没有contentType所以怎么设置都无所谓
+
+

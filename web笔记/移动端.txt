@@ -1,0 +1,55 @@
+理想视口参数：
+ <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=no">
+/*快捷键 meta:vp*/
+
+meta 设置文档的相关信息  刷新 编码类型 
+name 设置 viewport 视口
+content 内容    要设置视口的哪些内容 
+width:设置视口的宽度  device-width
+initial-scale 页面1打开的时候 放大的倍数  一般写1 就可以了 不需要放大
+maximum-scale 如果允许放大的话 最大放大多少倍  1 
+minimum-scale 如果运行放大的话 最小放大多少倍 1 
+user-scalable 是否运行用户缩放页面 yes no  
+    但是 某些浏览器不管 uc   
+    标准的理想视口的代码 不会出错 少一个两个属性的可能会出错 
+
+    要做专门的移动web的话 
+    1 不需要用到980px 理想视口 最好 视口的宽度和屏幕等宽!
+    2 使用 绝对长度 单位写的标签大小 不应该 被改变
+
+      px 是绝对长度单位  
+	  em 相对长度单位  100% 父元素 
+使用 绝对长度 单位写的标签大小 在不同的移动设备上 大小被改变了! 
+    要想实现元素大小根据屏幕大小变化的效果的话 也应该是我们自己处理 % 
+
+解决在不同倍数的设备像素比中图片适应不同高清质量(图片失真):
+1 通过js方法 设备像素比 devicePixelRatio 解决
+if(devicePixelRatio==2){img.src=''}
+if(devicePixelRatio==3){img.src=''}
+2 img标签的属性 srcset 
+<img src="" srcset="../images/x.png 2x,../images/y.png 3x"  alt="">
+
+常规做法 统一高清图  
+
+pc端鼠标事件在移动端存在缺陷
+鼠标不能触发多指触控事件
+鼠标点击事件在移动端存在延迟，在pc端无延迟
+触屏事件不能在pc端触发，不能通过on+事件名方式绑定，只能通过addEventListener
+
+touchstart  手指按下屏幕的时候触发 ( mousedown)
+touchmove  手指在屏幕上滑动的时候触发(mousemove)
+touchend   手指离开屏幕的时候 触发 ( mouseup) 
+
+touchmove 用targetTouches
+touchend  用changedTouches
+
+click要比touchstart延迟200ms左右
+
+当touchstart事件被触发，就算已移出事件源其touchmove和touchend也会触发，touchmove事件不会覆盖touchend
+当没有在事件源点击时，touchmove和touchend事件也不会触发
+
+pc端mouseup事件只要在事件源内就被触发，但mousemove权重比mouseup高，当执行相同属性时以mousemove优先
+
+touches 存放的是屏幕上所有的触摸点的集合
+targetTouches 存放的是目标元素上所有的触摸点的集合
+changedTouches 存放的是在目标元素上发生了进入,离开,移动的触摸点的集合(值只能为0或1，不管触发多少次又或着多指触发)

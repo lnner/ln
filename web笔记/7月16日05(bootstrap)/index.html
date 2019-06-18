@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            /*层叠*/
+             
+             div .son{
+                    width: 200px;
+                    color:red;
+            }
+            .father div{
+                  height:100px;
+                 color:#fff;
+                  background-color: hotpink; 
+            }
+                
+            /*优先级*/
+                
+          /*     0 2 0 0*/
+            #papa #baby{
+                background-color: blue  !important;
+                color:blue;
+            }
+           /*    0 1 1 0*/
+            #papa .son{
+                  background-color: yellow;
+                  color:#fff;
+            }
+            
+          /*  1 1 1 0 */
+            .father #baby{
+                  background-color: greenyellow  !important;
+                  color:aqua;
+            }
+                
+     
+      
+     
+         
+            
+            .father #sunzi{
+                
+            }
+
+            #papa #baby #sunzi{
+                
+            }
+  
+            #papa .son .sonson{
+                
+            }
+   
+            div div #sunzi{
+                
+            }
+
+            #papa div .sonson{
+                
+            }
+            
+   
+             
+              
+    </style>
+</head>
+<body>
+    <div class="father" id='papa' style=''>
+        <div class="son" id='baby'>
+                 <div class="sonson" id="sunzi"></div>
+        </div>
+    </div>
+</body>
+</html>

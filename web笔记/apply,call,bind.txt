@@ -1,0 +1,50 @@
+apply:
+apply:方法能劫持另外一个对象的方法，继承另外一个对象的属性. 
+
+Function.apply(obj,[param1[,param2[,…[,paramN]]]])方法能接收两个参数 
+Function；这个是被替代的目标函数
+obj：这个对象将代替Function类里this对象 
+args：这个是数组，它将作为参数传给Function（args-->arguments） 
+
+call:
+call:和apply的意思一样,只不过是参数列表不一样. 
+
+Function.call(obj,(param1,param2,param13)) 
+obj：这个对象将代替Function类里this对象 
+params：这个是一个参数列表，直接放参数
+
+
+bind:
+bind()方法创建一个新的函数, 提前绑定对象和部分参数。
+
+Function.bind(obj,(param1,param2,param13))
+同call
+
+共同点：都是在调用时（默认执行函数），动态指定函数中的this  （若为空则this指向自身）
+        不同点：  
+            1.call，apply借用，临时绑定  
+            2.bind 永久绑定  
+        返回值：  
+            1.call，apply不 创建 新函数，仅 调用 原函数  
+            2.bind基于原函数，创建新函数对象  
+            之后调用的其实是新函数对象  
+        参数：  
+            2，call，apply在调用的时候传入所有参数  
+                call，要求独立传入每个参数  
+                apply，要求将参数放入数组，统一传入  
+            2，bind可在创建函数提前绑定部分参数
+
+apply的一个巧妙的用处,可以将一个数组默认的转换为一个参数列表([param1,param2,param3] 转换为 param1,param2,param3) 这个如果让我们用程序来实现将数组的每一个项,来装换为参数的列表,可能都得费一会功夫,借助apply的这点特性,所以就有了以下高效率的方法
+
+什么情况下用apply,什么情况下用call,什么情况下用bind：
+
+在给对象参数的情况下,如果参数的形式是数组的时候,比如apply里面传递了参数arguments,这个参数是数组类型,并且在调用替代的函数的时候参数的列表是对应一致的就可以采用 apply ,如果传入的参数和替代的函数里的伪参数对不上号就用call);
+当需要独立出函数重复调用时用bind;
+
+Function.prototype这个对象上值得记住的两个方法是call,apply和bind.
+所有的函数都会从这个对象身上继承到这两个方法. <--JS的原型继承运作方式, 别的prototype也一样.
+Function是JS的内置对象，所有用户定义的函数用function声明，其实声明的函数是Function的一个实例
+
+1、js中的所有用户自定义的函数以及JS中内置的对象方法，都是Function的一个实例对象；他们共享Function原型中的属性和方法，              即Function.prototype中定义的属性和方法，通过函数名可以获取Function中的属性和方法。实际上获取的属性和方法相当于函数名的静态变量和静态方法。
+ 2、修改Function.prototype中的属性和方法，会影响JS中的所有函数，如同修改Object.prototype一样；
+ 3、Function.prototype的上级原型指向Object.prototype

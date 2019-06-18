@@ -1,0 +1,32 @@
+.对日期时间控件的样式进行修改
+目前WebKit下有如下9个伪元素可以改变日期控件的UI：
+::-webkit-datetime-edit – 控制编辑区域的
+::-webkit-datetime-edit-fields-wrapper – 控制年月日这个区域的
+::-webkit-datetime-edit-text – 这是控制年月日之间的斜线或短横线的
+::-webkit-datetime-edit-month-field – 控制月份
+::-webkit-datetime-edit-day-field – 控制具体日子
+::-webkit-datetime-edit-year-field – 控制年文字, 如2017四个字母占据的那片地方
+::-webkit-inner-spin-button – 这是控制上下小箭头的
+::-webkit-calendar-picker-indicator – 这是控制下拉小箭头的
+::-webkit-clear-button –这是控制清除按钮的
+
+对checkbox和radio的选中和获取
+$('input:checkbox)===$('input[type=checkbox]')
+
+获取选中
+$('input[type=checkbox]:checked')
+$('input[type=checkbox][checked]')
+
+获取为选中
+$('input[type=checkbox]').not("input:checked");  
+
+判断是否选中//mousedown checked前 click checked后
+$('input[type=checkbox]').is(':checked')||.prop('checked')
+
+强制选中
+$('input[type=checkbox]').prop('checked',true);
+$('input[type=checkbox]').attr('checked',true);
+$('input[type=checkbox]').attr('checked','checked');
+
+不选中可以
+$('input[type=checkbox]').removeAttr('checked');

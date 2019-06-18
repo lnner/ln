@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="renderer" content="webkit" />
+  <title>Document</title>
+  <script src='http://code.jquery.com/jquery-1.8.3.min.js'></script>
+</head>
+<style>
+
+</style>
+
+<body>
+
+</body>
+<script>
+  var defer = jQuery.Deferred();
+  defer.done(function (a, b) {
+    console.log("a = " + a + "b = " + b);
+    return a * b;
+
+
+  }).done(function (result,result2) {
+    console.log("result = " + result+" result2 = " + result2);
+
+
+  }).then(function (a, b) {
+    console.log("a = " + a + "b = " + b);
+    return a * b;
+
+
+  }).done(function (result) {
+    console.log("result = " + result);
+
+
+  }).then(function (a, b) {
+    console.log("a = " + a + "b = " + b);
+    return a * b;
+
+
+  }).done(function (result) {
+    console.log("result = " + result);
+  });
+
+
+  defer.resolve(2, 3);
+</script>
+
+</html>

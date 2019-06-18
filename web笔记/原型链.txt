@@ -1,0 +1,10 @@
+new个构造函数等同实例化一个对象，该对象有个属性为__proto__，它指向prototype--即该构造函数的原型对象（原型对象即为构造函数.prototype）//prototype为原型
+实例对象.__proto__===构造函数.prototpye
+object.prototype->object {}  //object为构造函数名称，大括号{}为原型
+prototype有一个constructor属性，该属性指向构造函数自己
+prototpye又指向下一级原型对象，一级一级形成了原型链
+
+(ps:是__proto__不是_proto_)
+
+作用域链：一级一级往外找
+原型链：一级一级往里找

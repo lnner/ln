@@ -1,0 +1,24 @@
+如果不设置line-height默认为初始值: normal(通常line-height:normal的值为font-size值的1.2倍)
+是line-height规定的标签高度，不是由font-size，当line-height小于font-size时，行内框实际上小于内容区，即文本超出标签高度（文本不会有删减,但有可能发生重叠）
+line-height行高是指文本行基线之间的距离的长度，长度，长度，行高的顶和底为外边界
+line-height针对行内元素，而鼠标划过的背景色不是line-height
+vertical-align:middle的中线为以 小 写字母x为参考对象的中心
+如果不设置vertical-align默认以baseline对齐，所以每个子元素不设置时都会默认为基线对齐，当有不同vertical-align时，根据自身的vertical-align对齐。
+
+baseline，middle，text-top，text-bottom都是线线对齐后跟着所有元素中排序最高（以对齐的线为起点往上的高度）的元素到父元素的顶部。
+
+1、vertical-align:baseline
+默认对齐方式，基线对齐，与父元素（可以是空白节点）的基线对齐
+2、vertical-align:top
+元素顶部和整行的顶部对齐。
+3、vertical-align：middle
+元素的垂直中心点（height的中心）和以基线的x（小写字母）中心点为参考对齐到一起。
+4、vertical-align:bottom
+元素底部和整行最低元素的底部对齐。
+
+vertical-align:text-top
+盒子(line-height边界)的顶部和父级字体的顶部对齐。
+vertical-align:text-bottom
+盒子(line-height边界)的底部和父级字体的底部对齐。
+Vertical-align:super提高盒子的基线到父级合适的上标基线位置。
+Vertical-align:sub降低盒子的基线到父级合适的下标基线位置。

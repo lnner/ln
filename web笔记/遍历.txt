@@ -1,0 +1,43 @@
+﻿js
+1、for--数组
+
+for(let i=0;i<arr.length;i++){}
+
+for(let i=0,len=arr.length;i<len;i++){}
+
+for(let i=0;arr[i]!=null;i++;){}
+
+
+2、for--in 数组，对象
+
+for(let key in arr){}
+
+for(let key of arr){}//性能好，但只能数组
+
+3、forEach---数组
+arr.forEach((value,index,arr)=>{})//无break，可用try catch代替
+
+4、map---数组，具有回调功能，返回值组成新的数组，原数组不变
+var ary=arr.map((value,index)=>{
+return value+1
+})
+//若无return回调则ary为等数量的undefined
+
+5、filter---数组，具有回调功能，过滤通过条件(条件为true，且仅用来判断布尔值，不会返回该值重新组合为新数组数据)的数组里的元素组成一个新数组，原数组不变
+var ary=arr.filter((value,index)=>{
+return value==1
+})
+
+6、some,every---数组
+some函数，遍历数组中是否有符合条件的元素，返回Boolean值（只有一个值，结果不为数组）
+every函数， 遍历数组中是否每个元素都符合条件，返回Boolean值（只有一个值，结果不为数组）
+
+3,4,5,6的数组若是嵌套数组,则（[key,value],index）=>{ }
+
+jq
+1、$.each----数组，对象
+$.each(arr,(key,value)=>{})//纯数组，对象
+$('xx').each((key,value)=>{})//jq对象
+
+2、$.map-----数组，对象，具有回调功能，返回值组成新的数组，原数组不变
+同上

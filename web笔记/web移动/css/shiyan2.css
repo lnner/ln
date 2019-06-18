@@ -1,0 +1,299 @@
+@import url('base.css');
+header {
+  width: 100%;
+  padding: 5px 50px 5px 70px;
+  height: 40px;
+  position: fixed;
+  z-index: 2;
+}
+header .logo {
+  width: 70px;
+  height: 40px;
+  padding: 10px 5px;
+  left: 0;
+  top: 0;
+  background-color: grey;
+  background: url('../images/jd-sprites.png') 0 -110px no-repeat;
+  background-size: 200px 200px;
+  background-origin: content-box;
+  background-clip: content-box;
+}
+header .sreach {
+  width: 100%;
+  height: 30px;
+  border-radius: 20px;
+  border: none;
+  text-indent: 20px;
+}
+header .login {
+  height: 40px;
+  width: 50px;
+  right: 0;
+  top: 0;
+  text-align: center;
+  line-height: 40px;
+  color: #fff;
+}
+.nav {
+  width: 100%;
+}
+.nav > li {
+  float: left;
+  width: 25%;
+  text-align: center;
+  padding: 5px;
+}
+.nav > li img {
+  width: 50%;
+  margin: 0 auto;
+}
+.line {
+  width: 100%;
+  height: 5px;
+  background: #fafafa;
+}
+.handle .handle_killtime {
+  height: 30px;
+  width: 100%;
+}
+.handle .handle_killtime > li {
+  height: 30px;
+  float: left;
+}
+.handle .handle_killtime > li:nth-child(1) {
+  width: 30px;
+  height: 30px;
+  padding: 4px;
+  margin-left: 10px;
+  background: url('../images/jd-sprites.png') -82px -110px no-repeat;
+  background-size: 200px 200px;
+  background-origin: content-box;
+  background-clip: content-box;
+}
+.handle .handle_killtime > li:nth-child(2) {
+  font-size: 15px;
+  color: #F15353;
+  line-height: 30px;
+  margin-left: 10px;
+}
+.handle .handle_killtime > li:nth-child(3) {
+  padding: 4px 0;
+  margin-left: 10px;
+}
+.handle .handle_killtime > li:nth-child(3) span {
+  float: left;
+  margin-right: 3px;
+  color: #fff;
+  font-size: 14px;
+  width: 12px;
+  background: grey;
+  line-height: 20px;
+  text-align: center;
+}
+.handle .handle_killtime > li:nth-child(3) span:nth-child(3n) {
+  background: #fff;
+  color: grey;
+  margin: 0;
+}
+.handle .handle_killtime > li:last-child {
+  float: right;
+  line-height: 30px;
+}
+.handle .handle_kill {
+  width: 100%;
+}
+.handle .handle_kill > li {
+  float: left;
+  width: 33.33%;
+  text-align: center;
+}
+.handle .handle_kill > li p {
+  color: #F15353;
+}
+.jd_618 {
+  width: 100%;
+}
+.jd_618 .jd_618_left {
+  left: 5px;
+  bottom: 5px;
+  width: 48%;
+}
+.jd_618 .jd_618_right {
+  right: 5px;
+  bottom: 5px;
+  width: 48%;
+}
+.subnav {
+  width: 100%;
+}
+.subnav > li {
+  float: left;
+  width: 50%;
+}
+.subnav > li:nth-child(-n+3) {
+  width: 33.33%;
+}
+.subnav > li:nth-child(4) {
+  clear: both;
+}
+.banner {
+  padding: 5px;
+  width: 100%;
+}
+.superMarket p {
+  color: #F15353;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 800;
+  text-indent: 5px;
+}
+.superMarket li {
+  float: left;
+  width: 50%;
+}
+.theme > li {
+  float: left;
+  width: 25%;
+}
+.theme > li:nth-child(-n+2) {
+  width: 50%;
+}
+.theme > li::nth-child(5) {
+  clear: both;
+}
+.brand p {
+  color: #F15353;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 800;
+  text-indent: 5px;
+}
+.brand li {
+  float: left;
+}
+.brand li:nth-child(1) {
+  width: 40%;
+}
+.brand li:nth-child(2) {
+  width: 30%;
+}
+.brand li:nth-child(3) {
+  width: 30%;
+}
+.like .like_title {
+  height: 30px;
+  width: 100%;
+}
+.like .like_title a:nth-child(1) {
+  color: #F15353;
+  font-size: 20px;
+  line-height: 30px;
+  text-indent: 5px;
+  font-weight: 800;
+  float: left;
+}
+.like .like_title a:nth-child(2) {
+  color: #F15353;
+  font-size: 15px;
+  line-height: 30px;
+  float: right;
+  margin-right: 5px;
+}
+.like .like_title img {
+  width: 18px;
+  height: 18px;
+  float: right;
+  margin: 6px 0;
+  background: url('../images/icon-login.png') no-repeat;
+  background-size: contain;
+}
+.like .like_content > li {
+  width: 50%;
+  padding: 10px 10px 5px 10px;
+  float: left;
+}
+.like .like_content > li .like_content_top {
+  height: 20px;
+}
+.like .like_content > li .like_content_top span {
+  float: left;
+  color: #F15353;
+  font-size: 15px;
+}
+.like .like_content > li .like_content_top a {
+  font-size: 15px;
+  float: right;
+  border: 1px solid #ccc;
+}
+.like .like_content > li p {
+  font-size: 15px;
+  color: #000;
+  height: 40px;
+  overflow: hidden;
+  border-bottom: 1px solid #ccc;
+}
+footer .footer_load {
+  font-size: 15px;
+  line-height: 50px;
+  text-align: center;
+  width: 100%;
+  border-top: 1px solid #ccc;
+}
+footer .footer_login {
+  border-top: 1px solid #ccc;
+  padding: 15px 0;
+  width: 100%;
+  height: 50px;
+}
+footer .footer_login li {
+  float: left;
+  height: 100%;
+  line-height: 20px;
+  text-align: center;
+  border-right: 1px solid grey;
+  width: 25%;
+}
+footer .footer_login li:last-child {
+  border: none;
+}
+footer .footer_version {
+  width: 100%;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+footer .footer_version li {
+  float: left;
+  width: 33.33%;
+  text-align: center;
+}
+footer .footer_version li .footer_version_app {
+  background: url('../images/jd-sprites.png') -120px -70px no-repeat;
+  width: 35px;
+  height: 35px;
+  margin: 0 auto;
+  font-size: 18px;
+  background-size: 200px 200px;
+}
+footer .footer_bottom {
+  text-align: center;
+  padding: 20px;
+}
+footer .footer_bottom p {
+  font-size: 15px;
+}
+.last {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+.last li {
+  width: 20%;
+  float: left;
+}
+.last_fu {
+  visibility: hidden;
+}
+.last_fu img {
+  width: 20%;
+}
